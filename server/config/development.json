@@ -1,0 +1,8 @@
+{    
+    "server_port": 5000,    
+    "dcg_database":"dcg",
+    "dcg_user":"postgres",
+    "dcg_password": "postgres",
+    "dcg_host": "localhost",
+    "dcg_port": 5432
+}
