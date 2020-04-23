@@ -40,8 +40,31 @@ exports.get_customer= async function(req, res){
     try{
         logger.info(req.params);
         const { id } = req.params;
-        const customer= await pool.query("SELECT customer.*, address.addressid, address.address1, address.address2, address.city, address.state, address.country, address.zip FROM customer JOIN address ON customer.customerid=address.customerid WHERE address.primaryaddress IS TRUE AND customerid=$1",
+        const customer= await pool.query("SELECT customer.*, address.addressid, address.address1, address.address2, address.city, address.state, address.country, address.zip FROM customer JOIN address ON customer.customerid=address.customerid WHERE address.primaryaddress IS TRUE AND customer.customerid=$1",
             [id]);
+        res.json(customer.rows);
+    }catch(err){
+        logger.error(err.message);
+        res.json(err);
+    }
+}
+
+exports.get_findcustomer= async function(req, res){
+    try{
+        for (const key in req.query) {
+            logger.info("Key: "+key+", Value: "+req.query[key]);
+          }
+        const { phone, lastname } = req.query;
+        var query="SELECT customer.*, address.addressid, address.address1, address.address2, address.city, address.state, address.country, address.zip FROM customer JOIN address ON customer.customerid=address.customerid WHERE address.primaryaddress IS TRUE AND customer.phone=$1";
+        var selectCustomerValues = [phone];        
+
+        if(lastname !== undefined && lastname !== '')
+        {
+            query+=" AND customer.lastname=$2";
+            selectCustomerValues.push(lastname);
+        }
+        const customer= await pool.query(query,
+            selectCustomerValues);
         res.json(customer.rows);
     }catch(err){
         logger.error(err.message);
