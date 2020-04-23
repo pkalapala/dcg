@@ -2,8 +2,9 @@ var express=require("express");
 var router=express.Router();
 
 let customer=require("../controllers/customer");
+const { customerValidationRules, validate } = require('../validations/validator.js')
 
-router.post("/", customer.create_customer);
+router.post("/", customerValidationRules('create_customer'), validate, customer.create_customer);
 router.get("/", customer.get_allCustomers);
 router.get("/find/*", customer.get_findcustomer);
 router.get("/:id", customer.get_customer);

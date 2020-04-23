@@ -1,5 +1,6 @@
 var logger=require("winston");
 var pool= require("../db");
+const { validationResult } = require('express-validator');
 
 exports.create_customer=async function(req, res){
     const client = await pool.connect();
