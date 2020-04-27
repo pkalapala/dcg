@@ -1,10 +1,10 @@
 .toolbar{
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 200px;
+    width: 90%;
     background: black;
-    height: 56px;
+    height: 75px;
 }
 
 .toolbar_navigation {

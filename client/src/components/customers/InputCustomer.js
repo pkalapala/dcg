@@ -10,14 +10,14 @@ const InputCustomer = () => {
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
     const [zipcode, setZipcode] = useState("");
-    const [phone, setPhone] = useState("");
+    const [homephone, setHomephone] = useState("");
     const [email, setEmail] = useState("");
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
         try {
-            const body = { firstname, lastname, phone, email, address1, address2, city, state, country,  zipcode };
-            const response = await fetch("http://localhost:5000/customers",{
+            const body = { firstname, lastname, homephone, email, address1, address2, city, state, country,  zipcode };
+            const response = await fetch("http://localhost:5000/api/customers",{
                 method: "POST",
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(body)
@@ -76,9 +76,9 @@ const InputCustomer = () => {
             </div>                        
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <label for="phone">Phone</label>
-                    <input type="tel" className="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={phone} onChange={e => setPhone(e.target.value)}/>
-                    <small id="phoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
+                    <label for="homephone">Home Phone</label>
+                    <input type="tel" className="form-control" id="homephone" aria-describedby="homephoneHelp" placeholder="Home Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={homephone} onChange={e => setHomephone(e.target.value)}/>
+                    <small id="homephoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
                 </div>
             </div>
             <div class="form-group row">

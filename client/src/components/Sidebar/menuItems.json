@@ -1,0 +1,25 @@
+{
+    "data" : [
+      {
+          "name": "Customers",          
+          "children": [
+            {
+              "name": "Find Customer",
+              "url": "/customers/find"
+            },
+            {
+              "name": "Add New Customer",
+              "url": "/customers/add"
+            },
+            {
+              "name": "List All Customers",
+              "url": "/customers/list"
+            }
+          ]
+      },
+      {
+        "name": "Inventory Search",
+        "url": "/stocktool"
+      }           
+    ]
+  }

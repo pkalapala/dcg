@@ -1,6 +1,7 @@
 var express = require("express");
 var cors = require("cors");
 var logger=require("winston");
+var config = require('./environments');
 
 var app = express();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 var customerRouter=require("./routes/customer");
 app.use('/customers',customerRouter);
 
-app.listen(5000, () => {
-    console.log("Server has started on port 5000");
+
+const port = config.server_port || 3000;
+app.listen(port, () => {
+    console.log(`Server has started on port ${port}`);
 })

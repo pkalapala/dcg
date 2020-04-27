@@ -1,11 +1,16 @@
 CREATE TABLE public.customer
 (
     customerid bigserial NOT NULL,
-    firstname VARCHAR,
+    firstname VARCHAR NOT NULL,
     lastname VARCHAR, 
-    phone VARCHAR,    
+    homephone VARCHAR NOT NULL,    
+    workphone VARCHAR,
+    cellphone VARCHAR,
     email VARCHAR,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdby BIGINT,
+    updated TIMESTAMP,
+    updatedby BIGINT,
     PRIMARY KEY (customerid)
 );
 CREATE TABLE public.address

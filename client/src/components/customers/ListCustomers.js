@@ -9,7 +9,7 @@ const ListCustomers = () => {
     const deleteCustomer = async id => {
         try {
             console.log(id);
-            const deleteCustomer=await fetch('http://localhost:5000/customers/'+id, {
+            const deleteCustomer=await fetch('http://localhost:5000/api/customers/'+id, {
                 method:"DELETE"
             });
 
@@ -24,7 +24,7 @@ const ListCustomers = () => {
     // Get All Customer Records
     const getCustomers = async () => {
         try{
-            const response= await fetch("http://localhost:5000/customers");
+            const response= await fetch("http://localhost:5000/api/customers");
             const jsonData= await response.json();
 
             setCustomers(jsonData);

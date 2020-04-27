@@ -8,7 +8,7 @@ import ListCustomers from "./components/customers/ListCustomers";
 import FindCustomer from "./components/customers/FindCustomer/FindCustomer";
 import Home from "./components/Home/Home";
 import Toolbar from "./components/Toolbar/Toolbar";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar1";
 
 function App() {
   return (

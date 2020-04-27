@@ -9,14 +9,14 @@ const EditCustomer = ({customer}) => {
     const [state, setState] = useState(customer.state);
     const [country, setCountry] = useState(customer.country);
     const [zipcode, setZipcode] = useState(customer.zip);
-    const [phone, setPhone] = useState(customer.phone);
+    const [homephone, setHomePhone] = useState(customer.homephone);
     const [email, setEmail] = useState(customer.email);  
 
     // Update the Customer Record
 
     const updateCustomer= async e => {
         try {
-            const body = { firstname, lastname, phone, email, address1, address2, city, state, country,  zipcode };
+            const body = { firstname, lastname, homephone, email, address1, address2, city, state, country,  zipcode };
             const response = await fetch(`http://localhost:5000/customers/${customer.customerid}`,
                 {
                     method: "PUT",
@@ -90,8 +90,8 @@ const EditCustomer = ({customer}) => {
                             </div>                        
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" className="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={phone} onChange={e => setPhone(e.target.value)}/>
+                                    <label for="homephone">Home Phone</label>
+                                    <input type="tel" className="form-control" id="homephone" aria-describedby="homephoneHelp" placeholder="Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={homephone} onChange={e => setHomePhone(e.target.value)}/>
                                     <small id="phoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@ const EditCustomer = ({customer}) => {
                                 onClick = {() => {
                                     setFirstname(customer.firstname);
                                     setLastname(customer.lastname);
-                                    setPhone(customer.phone);
+                                    setHomePhone(customer.homephone);
                                     setEmail(customer.email);
                                     setAddress1(customer.address1);
                                     setAddress2(customer.address2);
