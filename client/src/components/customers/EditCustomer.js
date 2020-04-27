@@ -10,14 +10,16 @@ const EditCustomer = ({customer}) => {
     const [country, setCountry] = useState(customer.country);
     const [zipcode, setZipcode] = useState(customer.zip);
     const [homephone, setHomePhone] = useState(customer.homephone);
+    const [cellphone, setCellPhone] = useState(customer.cellphone);
+    const [workphone, setWorkPhone] = useState(customer.workphone);
     const [email, setEmail] = useState(customer.email);  
 
     // Update the Customer Record
 
     const updateCustomer= async e => {
         try {
-            const body = { firstname, lastname, homephone, email, address1, address2, city, state, country,  zipcode };
-            const response = await fetch(`http://localhost:5000/customers/${customer.customerid}`,
+            const body = { firstname, lastname, homephone, cellphone, workphone, email, address1, address2, city, state, country,  zipcode };
+            const response = await fetch(`http://localhost:5000/api/customers/${customer.customerid}`,
                 {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
@@ -89,10 +91,20 @@ const EditCustomer = ({customer}) => {
                                 </div>
                             </div>                        
                             <div class="form-group row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <label for="homephone">Home Phone</label>
-                                    <input type="tel" className="form-control" id="homephone" aria-describedby="homephoneHelp" placeholder="Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={homephone} onChange={e => setHomePhone(e.target.value)}/>
-                                    <small id="phoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
+                                    <input type="tel" className="form-control" id="homephone" aria-describedby="homephoneHelp" placeholder="Home Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={homephone} onChange={e => setHomePhone(e.target.value)}/>
+                                    <small id="homephoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="cellphone">Cell Phone</label>
+                                    <input type="tel" className="form-control" id="cellphone" aria-describedby="cellphoneHelp" placeholder="Cell Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={cellphone} onChange={e => setCellPhone(e.target.value)}/>
+                                    <small id="cellphoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="workphone">Work Phone</label>
+                                    <input type="tel" className="form-control" id="workphone" aria-describedby="workphoneHelp" placeholder="Work Phone #" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={workphone} onChange={e => setWorkPhone(e.target.value)}/>
+                                    <small id="workphoneHelp" className="form-text text-muted">Format: 555-55-5555</small>
                                 </div>
                             </div>
                             <div class="form-group row">

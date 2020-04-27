@@ -60,7 +60,7 @@ const ListCustomers = () => {
                     <tr key={customer.customerid}>
                         <td>{customer.firstname}</td>
                         <td>{customer.lastname}</td>
-                        <td>{customer.phone}</td>
+                        <td>{customer.homephone}</td>
                         <td>{customer.email}</td>
                         <td><EditCustomer customer={customer}/></td>
                         <td><button className="btn btn-danger" onClick={() => deleteCustomer(customer.customerid)}>Delete</button></td>

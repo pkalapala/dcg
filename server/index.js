@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Routes //
 var customerRouter=require("./routes/customer");
-app.use('/customers',customerRouter);
+app.use('/api/customers',customerRouter);
 
 
 const port = config.server_port || 3000;
