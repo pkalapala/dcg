@@ -7,7 +7,7 @@ exports.create_customer=async function(req, res, next){
         await client.query('BEGIN');
         logger.info(req.body);
         const { firstname, lastname, homephone, workphone, cellphone, email, createdby, address1, address2, city, state, country, zipcode } = req.body;        
-        const newCustomer = await client.query(" INSERT INTO cusomer (firstname, lastname, homephone, workphone, cellphone, email, createdby) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING customerid", 
+        const newCustomer = await client.query(" INSERT INTO customer (firstname, lastname, homephone, workphone, cellphone, email, createdby) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING customerid", 
             [firstname, lastname, homephone, workphone, cellphone, email, createdby]);
         
         const newAddress = await client.query(" INSERT INTO address (customerid, address1, address2, city, state, country, zip, primaryaddress) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
