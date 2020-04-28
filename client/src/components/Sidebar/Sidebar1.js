@@ -11,13 +11,20 @@ import { Link } from 'react-router-dom'
 import menuItems from './menuItems'
 const styles = {
   paper: {
-    background: "#C0C0C0"
+    background: "#303030",    
+    color: "white"
+  },
+  tr: {
+    background: "#303030",
+    '&:hover': {
+      background: "orange",
+    }
   },
   list: {
-    width: 250,
+    width: 250
   },
   links: {
-    textDecoration:'none',
+    textDecoration:'none'
   },
   menuHeader: {
     paddingLeft: '30px'
